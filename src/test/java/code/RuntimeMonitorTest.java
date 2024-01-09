@@ -17,7 +17,7 @@ public class RuntimeMonitorTest implements IAssistMonitor, IAssistOutFile {
     @MonitorAlligator
     public void at1() throws Exception {
         MonitorRecord.MonitorStack monitorStack = AssistMonitor.start();
-        /**如果要使用耗时统计添加启动参数 -javaagent:..\target\libs\assist.jar=需要监控的包名 */
+        /**如果要使用耗时统计添加启动参数 -javaagent:libs\wxd-j21-assist.jar=需要监控的包名 */
         at2();
         at3();
         AssistMonitor.close(monitorStack, this);
@@ -27,10 +27,11 @@ public class RuntimeMonitorTest implements IAssistMonitor, IAssistOutFile {
     @MonitorAlligator
     public void at2() throws Exception {
         MonitorRecord.MonitorStack monitorStack = AssistMonitor.start();
-        /**如果要使用耗时统计添加启动参数 -javaagent:..\target\libs\assist.jar=需要监控的包名 */
+        /**如果要使用耗时统计添加启动参数 -javaagent:libs\wxd-j21-assist.jar=需要监控的包名 */
         new B()
                 .b1()
                 .a1();
+        new C().c1();
         AssistMonitor.close(monitorStack, this);
     }
 
@@ -65,4 +66,9 @@ public class RuntimeMonitorTest implements IAssistMonitor, IAssistOutFile {
 
     }
 
+    public static class C implements IAssistOutFile {
+        public void c1() throws InterruptedException {
+            new T2().t2();
+        }
+    }
 }

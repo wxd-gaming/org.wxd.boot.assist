@@ -74,7 +74,7 @@
                         </goals>
                         <configuration>
                             <target>
-                                <copy todir="${basedir}/../target/libs" overwrite="true">
+                                <copy todir="${basedir}/libs" overwrite="true">
                                     <fileset dir="${project.build.directory}" erroronmissingdir="false">
                                         <include name="*.jar"/>
                                     </fileset>
